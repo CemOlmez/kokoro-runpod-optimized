@@ -1,0 +1,6 @@
+fastapi==0.116.1
+uvicorn[standard]==0.35.0
+pydantic==2.11.7
+numpy==2.3.2
+soundfile==0.13.1
+kokoro==0.9.4
