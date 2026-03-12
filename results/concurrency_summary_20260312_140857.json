@@ -1,0 +1,109 @@
+{
+  "base_url": "https://h6jndxefl2h32l.api.runpod.ai",
+  "levels": [
+    1,
+    10,
+    50,
+    100
+  ],
+  "requests_per_level": 0,
+  "initial_ping": {
+    "status": 200,
+    "ok": true,
+    "total_s": 49.1692156670033,
+    "ttfb_s": 49.16917808400467,
+    "resp_bytes": 0,
+    "error": ""
+  },
+  "payload": {
+    "text": "Merhaba dunya, concurrency load test.",
+    "voice": "default",
+    "speed": 1.0,
+    "format": "wav",
+    "split_long_text": true,
+    "max_chars_per_chunk": 180
+  },
+  "summaries": [
+    {
+      "concurrency": 1,
+      "requests": 1,
+      "ok": 1,
+      "failed": 0,
+      "success_rate": 100.0,
+      "wall_s": 2.775287249998655,
+      "rps": 0.3603230620543818,
+      "latency_avg_s": 2.774930832965765,
+      "latency_p50_s": 2.774930832965765,
+      "latency_p90_s": 2.774930832965765,
+      "latency_p95_s": 2.774930832965765,
+      "latency_p99_s": 2.774930832965765,
+      "latency_max_s": 2.774930832965765,
+      "ttfb_avg_s": 2.2651883749640547,
+      "status_counts": {
+        "200": 1
+      }
+    },
+    {
+      "concurrency": 10,
+      "requests": 10,
+      "ok": 10,
+      "failed": 0,
+      "success_rate": 100.0,
+      "wall_s": 5.089801374997478,
+      "rps": 1.9647132104452611,
+      "latency_avg_s": 3.102976966794813,
+      "latency_p50_s": 4.052442124986555,
+      "latency_p90_s": 4.762537863117177,
+      "latency_p95_s": 4.925458806543611,
+      "latency_p99_s": 5.055795561284759,
+      "latency_max_s": 5.088379749970045,
+      "ttfb_avg_s": 2.712133337504929,
+      "status_counts": {
+        "200": 10
+      }
+    },
+    {
+      "concurrency": 50,
+      "requests": 50,
+      "ok": 50,
+      "failed": 0,
+      "success_rate": 100.0,
+      "wall_s": 16.61637491604779,
+      "rps": 3.009079913797017,
+      "latency_avg_s": 8.905276652582689,
+      "latency_p50_s": 9.154739000485279,
+      "latency_p90_s": 15.834622553916416,
+      "latency_p95_s": 16.137339597780375,
+      "latency_p99_s": 16.506662532677872,
+      "latency_max_s": 16.615813667012844,
+      "ttfb_avg_s": 8.527510535878827,
+      "status_counts": {
+        "200": 50
+      }
+    },
+    {
+      "concurrency": 100,
+      "requests": 100,
+      "ok": 100,
+      "failed": 0,
+      "success_rate": 100.0,
+      "wall_s": 28.60521495802095,
+      "rps": 3.4958660561283366,
+      "latency_avg_s": 14.009568948430243,
+      "latency_p50_s": 14.355796208488755,
+      "latency_p90_s": 25.044787942164113,
+      "latency_p95_s": 25.850585456925906,
+      "latency_p99_s": 28.5954645383032,
+      "latency_max_s": 28.59716370794922,
+      "ttfb_avg_s": 13.616724454677314,
+      "status_counts": {
+        "200": 100
+      }
+    }
+  ],
+  "artifacts": {
+    "ping_csv": "results/concurrency_ping_20260312_140857.csv",
+    "requests_csv": "results/concurrency_requests_20260312_140857.csv",
+    "levels_csv": "results/concurrency_levels_20260312_140857.csv"
+  }
+}
