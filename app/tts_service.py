@@ -65,22 +65,12 @@ class TTSService:
         )
         model_ms = int((time.perf_counter() - model_t0) * 1000)
 
-        # Warm-up inference to prime CUDA kernels — first real request will be fast
-        warmup_t0 = time.perf_counter()
-        try:
-            for _ in self.pipeline("warmup", voice=self.settings.default_voice, speed=1.0, split_pattern=None):
-                pass
-        except Exception:
-            pass  # warmup failure is non-fatal
-        warmup_ms = int((time.perf_counter() - warmup_t0) * 1000)
-
         self.loaded = True
         total_ms = int((time.perf_counter() - startup_t0) * 1000)
         self._log(
             "startup_complete",
             startup_ms=total_ms,
             model_init_ms=model_ms,
-            warmup_ms=warmup_ms,
             voice_count=len(self.supported_voices),
             sample_rate=self.settings.sample_rate,
             cuda_available=torch.cuda.is_available(),
