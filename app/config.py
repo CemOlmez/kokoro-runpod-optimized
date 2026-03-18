@@ -26,7 +26,6 @@ class Settings:
     sample_rate: int
     model_lang: str
     kokoro_repo_id: str
-    kokoro_local_model_path: str
     kokoro_device: str
     allow_cpu_fallback: bool
     supported_voices: list[str]
@@ -55,7 +54,6 @@ def get_settings() -> Settings:
         sample_rate=int(os.getenv("SAMPLE_RATE", "24000")),
         model_lang=os.getenv("MODEL_LANG", "en-us"),
         kokoro_repo_id=os.getenv("KOKORO_REPO_ID", "hexgrad/Kokoro-82M"),
-        kokoro_local_model_path=os.getenv("KOKORO_LOCAL_MODEL_PATH", ""),
         kokoro_device=os.getenv("KOKORO_DEVICE", "cuda").strip().lower(),
         allow_cpu_fallback=_get_bool("ALLOW_CPU_FALLBACK", True),
         supported_voices=[v.strip() for v in os.getenv("SUPPORTED_VOICES", "").split(",") if v.strip()],

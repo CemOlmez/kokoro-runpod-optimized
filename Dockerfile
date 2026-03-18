@@ -16,13 +16,8 @@ RUN pip install --no-cache-dir -r /workspace/requirements.txt
 
 COPY app /workspace/app
 
-# Pre-download model + voice files into image — eliminates HuggingFace download on cold start
-RUN python -c "\
-from huggingface_hub import snapshot_download; \
-snapshot_download('hexgrad/Kokoro-82M', local_dir='/workspace/models/Kokoro-82M')" \
-    && rm -rf /root/.cache/pip
-
-ENV KOKORO_LOCAL_MODEL_PATH=/workspace/models/Kokoro-82M
+# Pre-download model into HuggingFace cache — eliminates download on cold start
+RUN python -c "from kokoro import KPipeline; KPipeline(lang_code='en-us', repo_id='hexgrad/Kokoro-82M', device='cpu')"
 
 EXPOSE 8000
 

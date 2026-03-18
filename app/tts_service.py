@@ -57,14 +57,10 @@ class TTSService:
             lang_code=self.settings.model_lang,
         )
 
-        # Use local model path if available (pre-downloaded in Docker image), otherwise download from HuggingFace
-        repo_id = self.settings.kokoro_local_model_path or self.settings.kokoro_repo_id
-        self._log("model_source", path=repo_id, is_local=bool(self.settings.kokoro_local_model_path))
-
         model_t0 = time.perf_counter()
         self.pipeline = KPipeline(
             lang_code=self.settings.model_lang,
-            repo_id=repo_id,
+            repo_id=self.settings.kokoro_repo_id,
             device=resolved_device,
         )
         model_ms = int((time.perf_counter() - model_t0) * 1000)
